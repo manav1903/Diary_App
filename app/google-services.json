@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "774472414804",
+    "project_id": "mydiary-f3ddb",
+    "storage_bucket": "mydiary-f3ddb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774472414804:android:080f25a3c244358766dfc1",
+        "android_client_info": {
+          "package_name": "mydiary.myjournal.diarywithlock.secretdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774472414804-jhknikhh22bgp93g4vkrmet0dvngg7a8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkCLM9LfkvaBDuTHPUKymo9POEeuHsLwg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774472414804-jhknikhh22bgp93g4vkrmet0dvngg7a8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
