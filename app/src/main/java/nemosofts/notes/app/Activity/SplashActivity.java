@@ -50,15 +50,14 @@ public class SplashActivity extends AppCompatActivity {
 
     public void loadSettings() {
         new Handler().postDelayed(() -> {
+            Intent main;
             if (Setting.in_code){
-                Intent main = new Intent(SplashActivity.this, LockScreenActivity.class);
-                startActivity(main);
-                finish();
+                main = new Intent(SplashActivity.this, LockScreenActivity.class);
             }else {
-                Intent main = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(main);
-                finish();
+                main = new Intent(SplashActivity.this, MainActivity.class);
             }
+            startActivity(main);
+            finish();
         },SPLASH_TIME_OUT);
     }
 }

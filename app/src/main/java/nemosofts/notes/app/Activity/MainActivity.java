@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +33,7 @@ import nemosofts.notes.app.Methods.Methods;
 import nemosofts.notes.app.Methods.NavigationUtil;
 import nemosofts.notes.app.R;
 import nemosofts.notes.app.SharedPref.Setting;
+import nemosofts.notes.app.SharedPref.SharedPref;
 import nemosofts.notes.app.adapters.NoteAdapter;
 import nemosofts.notes.app.database.NotesDatabase;
 import nemosofts.notes.app.entities.Note;
@@ -49,28 +51,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private List<Note> noteList;
     private NoteAdapter noteAdapter;
     private int noteClickedPostion = -1;
+    private SharedPref sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (Setting.Dark_Mode ) {
+
             setTheme(R.style.AppTheme2);
-        } else {
-            setTheme(R.style.AppTheme);
-        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         methods = new Methods(this);
 
-        methods = new Methods(this, new InterAdListener() {
-            @Override
-            public void onClick(int position, Note note, String type) {
-                noteClickedPostion = position;
-                Intent intent = new Intent(getApplicationContext(), CreateNoteActivity.class);
-                intent.putExtra("isViemOrUpdate", true);
-                intent.putExtra("note", note);
-                startActivityForResult(intent, REQUEST_CODE_UPDATE_NOTE);
-            }
-
+        methods = new Methods(this, (position, note, type) -> {
+            noteClickedPostion = position;
+            Intent intent = new Intent(getApplicationContext(), CreateNoteActivity.class);
+            intent.putExtra("isViemOrUpdate", true);
+            intent.putExtra("note", note);
+            startActivityForResult(intent, REQUEST_CODE_UPDATE_NOTE);
         });
 
 
@@ -88,25 +84,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(MainActivity.this);
 
         ImageView imageViewAddNoteMain = findViewById(R.id.imageAddNoteMain);
-        imageViewAddNoteMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivityForResult(
-                        new Intent(getApplicationContext(), CreateNoteActivity.class),
-                        REQUEST_CODE_ADD_NOTE
-                );
-            }
-        });
+        imageViewAddNoteMain.setOnClickListener(view -> startActivityForResult(
+                new Intent(getApplicationContext(), CreateNoteActivity.class),
+                REQUEST_CODE_ADD_NOTE
+        ));
+        ConstraintLayout constraintLayout=findViewById(R.id.mainLayout);
+        sharedPref = new SharedPref(this);
+        switch (sharedPref.getTheme()){
+            case "diary2":
+                constraintLayout.setBackgroundResource(R.drawable.diary2);
+                break;
+            case "diary3":
+                constraintLayout.setBackgroundResource(R.drawable.diary3);
+                break;
+            case "diary4":
+                constraintLayout.setBackgroundResource(R.drawable.diary4);
+                break;
+            case "diary5":
+                constraintLayout.setBackgroundResource(R.drawable.diary5);
+                break;
+            case "diary6":
+                constraintLayout.setBackgroundResource(R.drawable.diary6);
+                break;
+            case "diary7":
+                constraintLayout.setBackgroundResource(R.drawable.diary7);
+                break;
+            case "diary8":
+                constraintLayout.setBackgroundResource(R.drawable.diary8);
+                break;
+            case "diary9":
+                constraintLayout.setBackgroundResource(R.drawable.diary9);
+                break;
+            default:
+                constraintLayout.setBackgroundResource(R.drawable.diary1);
+        }
         notesRecyclerView = findViewById(R.id.notesRecyclerView);
-        notesRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        notesRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
 
         noteList = new ArrayList<>();
-        noteAdapter = new NoteAdapter(this, noteList, new NotesListener() {
-            @Override
-            public void onNoteClicked(Note note, int position) {
-                methods.showInter(position, note, "");
-            }
-        });
+        noteAdapter = new NoteAdapter(this, noteList, (note, position) -> methods.showInter(position, note, ""));
         notesRecyclerView.setAdapter(noteAdapter);
         getNotes(REQUST_CODE_SHOW_NOTES, false);
 
@@ -197,6 +213,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_delete :
                 NavigationUtil.DeleteActivity(MainActivity.this);
+                break;
+            case R.id.nav_theme :
+                NavigationUtil.ThemeActivity(MainActivity.this);
                 break;
 
             default :

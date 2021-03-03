@@ -6,10 +6,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -21,6 +23,7 @@ import nemosofts.notes.app.Activity.Note.RestoreNoteActivity;
 import nemosofts.notes.app.Methods.Methods;
 import nemosofts.notes.app.R;
 import nemosofts.notes.app.SharedPref.Setting;
+import nemosofts.notes.app.SharedPref.SharedPref;
 import nemosofts.notes.app.adapters.NoteAdapter;
 import nemosofts.notes.app.database.DeleteDatabase;
 import nemosofts.notes.app.entities.Note;
@@ -42,14 +45,41 @@ public class DeleteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (Setting.Dark_Mode) {
             setTheme(R.style.AppTheme2);
-        } else {
-            setTheme(R.style.AppTheme);
-        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete);
 
+        RelativeLayout constraintLayout=findViewById(R.id.relativeTheme);
+        SharedPref sharedPref = new SharedPref(this);
+        switch (sharedPref.getTheme()){
+            case "diary2":
+                constraintLayout.setBackgroundResource(R.drawable.diary2);
+                break;
+            case "diary3":
+                constraintLayout.setBackgroundResource(R.drawable.diary3);
+                break;
+            case "diary4":
+                constraintLayout.setBackgroundResource(R.drawable.diary4);
+                break;
+            case "diary5":
+                constraintLayout.setBackgroundResource(R.drawable.diary5);
+                break;
+            case "diary6":
+                constraintLayout.setBackgroundResource(R.drawable.diary6);
+                break;
+            case "diary7":
+                constraintLayout.setBackgroundResource(R.drawable.diary7);
+                break;
+            case "diary8":
+                constraintLayout.setBackgroundResource(R.drawable.diary8);
+                break;
+            case "diary9":
+                constraintLayout.setBackgroundResource(R.drawable.diary9);
+                break;
+            default:
+                constraintLayout.setBackgroundResource(R.drawable.diary1);
+        }
         methods = new Methods(this);
 
         methods = new Methods(this, new InterAdListener() {
@@ -71,7 +101,7 @@ public class DeleteActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         notesRecyclerView = findViewById(R.id.deleteRecyclerView);
-        notesRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        notesRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
 
         noteList = new ArrayList<>();
         noteAdapter = new NoteAdapter(this, noteList, new NotesListener() {

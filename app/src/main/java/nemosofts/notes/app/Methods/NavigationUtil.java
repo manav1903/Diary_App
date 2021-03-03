@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat;
 
 import nemosofts.notes.app.Activity.DeleteActivity.DeleteActivity;
 import nemosofts.notes.app.Activity.Setting.SettingActivity;
+import nemosofts.notes.app.Activity.Theme.ThemeSelector;
 
 public class NavigationUtil {
 
@@ -18,6 +19,10 @@ public class NavigationUtil {
 
     public static void DeleteActivity(@NonNull Activity activity) {
         ActivityCompat.startActivity(activity, new Intent(activity, DeleteActivity.class), null);
+        activity.finish();
+    }
+    public static void ThemeActivity(@NonNull Activity activity) {
+        ActivityCompat.startActivity(activity, new Intent(activity, ThemeSelector.class), null);
         activity.finish();
     }
 }

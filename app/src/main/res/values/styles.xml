@@ -1,6 +1,27 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/background_Night</item>
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/background_Night</item>
+        <item name="colorPrimaryDark">@color/background_Night</item>
+        <item name="colorAccent">@color/colorAccent_Night</item>
+
+        <item name="icon_a">@drawable/ic_keyboard_backspace_black_24dp</item>
+        <item name="Boder">@color/Boder_Night</item>
+        <item name="Titel_1">@color/Titele_A_Night</item>
+        <item name="Titel_2">@color/Titele_AA_Night</item>
+        <item name="BackgroundColor_S">#56121212</item>
+        <item name="BackgroundColor">@color/background_Night</item>
+        <item name="BackgroundTint">@color/background_Light</item>
+
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+    <style name="AppTheme3" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowActionBarOverlay">true</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
@@ -37,7 +58,29 @@
         <item name="Boder">@color/Boder_Night</item>
         <item name="Titel_1">@color/Titele_A_Night</item>
         <item name="Titel_2">@color/Titele_AA_Night</item>
-        <item name="BackgroundColor_S">@color/Background_Night_S</item>
+        <item name="BackgroundColor_S">#56121212</item>
+        <item name="BackgroundColor">@color/background_Night</item>
+        <item name="BackgroundTint">@color/background_Light</item>
+
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+
+    <style name="AppTheme4" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/background_Night</item>
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/background_Night</item>
+        <item name="colorPrimaryDark">@color/background_Night</item>
+        <item name="colorAccent">@color/colorAccent_Night</item>
+
+        <item name="icon_a">@drawable/ic_keyboard_backspace_black_24dp</item>
+        <item name="Boder">@color/Boder_Night</item>
+        <item name="Titel_1">@color/Titele_A_Night</item>
+        <item name="Titel_2">@color/Titele_AA_Night</item>
+        <item name="BackgroundColor_S">#8F121212</item>
         <item name="BackgroundColor">@color/background_Night</item>
         <item name="BackgroundTint">@color/background_Light</item>
 

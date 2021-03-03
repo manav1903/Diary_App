@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/BackgroundColor"
+    android:id="@+id/create_i"
     tools:context=".Activity.Note.CreateNoteActivity">
 
     <ScrollView
@@ -41,6 +42,15 @@
                 android:textColorHint="?attr/Titel_2"
                 android:textSize="@dimen/_16ssp"
                 app:layout_constraintTop_toBottomOf="@id/reatore_toolbar_note" />
+
+            <ImageView
+                android:id="@+id/create_mood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_baseline_emoji_emotions_24"
+                app:layout_constraintBottom_toTopOf="@id/reatore_textDeteTime"
+                app:layout_constraintEnd_toEndOf="parent" />
 
 
             <TextView
@@ -115,17 +125,64 @@
             </LinearLayout>
 
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                app:riv_corner_radius="@dimen/_10sdp"
-                android:id="@+id/reatore_imageNote"
+            <HorizontalScrollView
+                android:id="@+id/images"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_250sdp"
-                android:layout_marginStart="@dimen/_12ssp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_12ssp"
-                android:layout_marginEnd="@dimen/_12ssp"
-                android:visibility="gone"
-                app:layout_constraintTop_toBottomOf="@id/reatore_layoutWebURL"/>
+                app:layout_constraintTop_toBottomOf="@id/reatore_layoutWebURL"
+                tools:ignore="MissingConstraints">
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/restore_imageNote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_250sdp"
+                        android:visibility="gone"
+                        android:layout_marginStart="@dimen/_2ssp"
+                        android:layout_marginTop="@dimen/_12ssp"
+                        android:layout_marginEnd="@dimen/_2ssp"
+                        android:scaleType="fitStart"
+                        app:riv_corner_radius="@dimen/_10sdp" />
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/restore_imageNote2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_250sdp"
+                        android:visibility="gone"
+                        android:layout_marginStart="@dimen/_2ssp"
+                        android:layout_marginTop="@dimen/_12ssp"
+                        android:layout_marginEnd="@dimen/_2ssp"
+                        android:scaleType="fitStart"
+                        app:riv_corner_radius="@dimen/_10sdp" />
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/restore_imageNote3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_250sdp"
+                        android:visibility="gone"
+                        android:layout_marginStart="@dimen/_2ssp"
+                        android:layout_marginTop="@dimen/_12ssp"
+                        android:layout_marginEnd="@dimen/_2ssp"
+                        android:scaleType="fitStart"
+                        app:riv_corner_radius="@dimen/_10sdp" />
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/restore_imageNote4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_250sdp"
+                        android:visibility="gone"
+                        android:layout_marginStart="@dimen/_2ssp"
+                        android:layout_marginTop="@dimen/_12ssp"
+                        android:layout_marginEnd="@dimen/_2ssp"
+                        android:scaleType="fitStart"
+                        app:riv_corner_radius="@dimen/_10sdp" />
+                </LinearLayout>
+            </HorizontalScrollView>
             <ImageView
                android:id="@+id/reatore_imageRemoveImage"
                 android:layout_width="@dimen/_25sdp"
@@ -134,8 +191,8 @@
                 android:layout_marginEnd="10dp"
                 android:padding="@dimen/_4sdp"
                 android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="@id/reatore_imageNote"
-                app:layout_constraintTop_toTopOf="@+id/reatore_imageNote"
+                app:layout_constraintEnd_toEndOf="@id/images"
+                app:layout_constraintTop_toTopOf="@+id/images"
                 android:contentDescription="@string/todo" />
 
 
@@ -158,7 +215,7 @@
                 android:textColorHint="?attr/Titel_2"
                 android:textSize="@dimen/_13ssp"
                 app:layout_constraintBottom_toTopOf="@+id/adView_reatore"
-                app:layout_constraintTop_toBottomOf="@id/reatore_imageNote"/>
+                app:layout_constraintTop_toBottomOf="@id/images"/>
 
 
             <LinearLayout

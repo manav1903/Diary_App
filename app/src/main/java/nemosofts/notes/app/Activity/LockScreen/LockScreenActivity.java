@@ -42,12 +42,7 @@ public class LockScreenActivity extends AppCompatActivity {
                     methods.showSnackBar("Code created","success");
                     sharedPre.saveToPref(encodedCode, true);
                     Setting.in_code = true;
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            onBackPressed();
-                        }
-                    },500);
+                    new Handler().postDelayed(() -> onBackPressed(),500);
                 }
 
                 @Override

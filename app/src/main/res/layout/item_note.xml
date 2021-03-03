@@ -1,75 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/item_layoutNote"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_layoutNote"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/_12sdp"
     android:layout_marginTop="@dimen/_12sdp"
     android:background="@drawable/background_note"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
 
     <TextView
-        android:translationZ="2dp"
-        android:paddingStart="@dimen/_3sdp"
-        android:paddingEnd="@dimen/_3sdp"
         android:id="@+id/item_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NEW"
         android:background="@drawable/background_note2"
         android:backgroundTint="#FF9100"
         android:includeFontPadding="false"
+        android:paddingStart="@dimen/_3sdp"
+        android:paddingEnd="@dimen/_3sdp"
+        android:text="NEW"
         android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_10ssp"
         android:textStyle="bold"
-        android:textSize="@dimen/_10ssp"/>
-
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/item_imageNote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:visibility="gone"
-        app:riv_corner_radius_top_left="@dimen/_10sdp"
-        app:riv_corner_radius_top_right="@dimen/_10sdp"/>
+        android:translationZ="2dp"
+        android:visibility="gone" />
 
     <TextView
-        android:layout_below="@id/item_imageNote"
+        android:id="@+id/item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginStart="@dimen/_7sdp"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_align"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_date"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginEnd="@dimen/_7sdp"
+        android:adjustViewBounds="true"
+        android:minHeight="@dimen/_40sdp"
+        android:maxWidth="@dimen/_40sdp"
+        android:maxHeight="@dimen/_50sdp"
+        android:visibility="gone"
+        app:riv_corner_radius="@dimen/_2sdp"
+        />
+
+    <ImageView
+        android:id="@+id/item_mood"
+        android:layout_width="@dimen/_22sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginEnd="@dimen/_7sdp"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/ic_baseline_emoji_emotions_24" />
+
+    <TextView
         android:id="@+id/item_textTitlem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/item_date"
         android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_toEndOf="@id/item_align"
         android:includeFontPadding="false"
         android:textColor="@color/colorWhite"
-        android:textStyle="bold"
-        android:textSize="@dimen/_13ssp"/>
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold" />
 
     <TextView
-        android:layout_below="@+id/item_textTitlem"
         android:id="@+id/item_textSubTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:layout_below="@+id/item_textTitlem"
         android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_4sdp"
+        android:layout_toEndOf="@id/item_align"
         android:includeFontPadding="false"
         android:textColor="@color/colorNoteSubTitleText"
-        android:textSize="@dimen/_12ssp"/>
+        android:textSize="@dimen/_12ssp" />
 
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_imageNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_textSubTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginEnd="@dimen/_7sdp"
+        android:adjustViewBounds="true"
+        android:maxWidth="@dimen/_40sdp"
+        android:maxHeight="@dimen/_50sdp"
+        android:scaleType="fitStart"
+        android:visibility="gone"
+        app:riv_corner_radius="@dimen/_2sdp" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_imageNote2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_textSubTitle"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginEnd="@dimen/_7sdp"
+        android:layout_toEndOf="@+id/item_imageNote"
+        android:adjustViewBounds="true"
+        android:maxWidth="@dimen/_40sdp"
+        android:maxHeight="@dimen/_50sdp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:riv_corner_radius="@dimen/_2sdp" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_imageNote3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_textSubTitle"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginEnd="@dimen/_7sdp"
+        android:layout_toEndOf="@+id/item_imageNote2"
+        android:adjustViewBounds="true"
+        android:maxWidth="@dimen/_40sdp"
+        android:maxHeight="@dimen/_50sdp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:riv_corner_radius="@dimen/_2sdp" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_imageNote4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_textSubTitle"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginEnd="@dimen/_7sdp"
+        android:layout_toEndOf="@+id/item_imageNote3"
+        android:adjustViewBounds="true"
+        android:maxWidth="@dimen/_40sdp"
+        android:maxHeight="@dimen/_50sdp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:riv_corner_radius="@dimen/_2sdp" />
     <TextView
-        android:layout_below="@+id/item_textSubTitle"
         android:id="@+id/item_textDateTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/item_imageNote"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_toEndOf="@id/item_align"
         android:includeFontPadding="false"
         android:textColor="@color/colorNoteSubTitleText"
-        android:textSize="@dimen/_7ssp"
-        />
+        android:textSize="@dimen/_7ssp" />
 
 </RelativeLayout>

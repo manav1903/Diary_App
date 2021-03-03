@@ -13,6 +13,10 @@
             android:id="@+id/nav_delete"
             android:icon="@drawable/ic_delete"
             android:title="@string/recycle_bin" />
+        <item
+            android:id="@+id/nav_theme"
+            android:icon="@drawable/ic_baseline_format_paint_24"
+            android:title="Select theme" />
 
         <item
             android:id="@+id/action_set"

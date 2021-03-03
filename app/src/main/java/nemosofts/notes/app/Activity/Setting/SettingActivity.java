@@ -18,6 +18,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.nemosofts.library.SwitchButton.SwitchButton;
 
@@ -49,13 +50,8 @@ public class SettingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sharedPref = new SharedPref(this);
-        if (sharedPref.getNightMode()) {
             setTheme(R.style.AppTheme2);
-            Setting.Dark_Mode = true;
-        } else {
-            setTheme(R.style.AppTheme);
-            Setting.Dark_Mode = false;
-        }
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
@@ -67,18 +63,39 @@ public class SettingActivity extends AppCompatActivity {
 
         this.setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        Dark_mode();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (Setting.Dark_Mode){
-                progressDialog = new ProgressDialog(SettingActivity.this, R.style.ThemeDialog2);
-            }else {
-                progressDialog = new ProgressDialog(SettingActivity.this, R.style.ThemeDialog);
-            }
-        } else {
-            progressDialog = new ProgressDialog(SettingActivity.this);
+        LinearLayout constraintLayout=findViewById(R.id.create_i);
+        SharedPref sharedPref = new SharedPref(this);
+        switch (sharedPref.getTheme()){
+            case "diary2":
+                constraintLayout.setBackgroundResource(R.drawable.diary2);
+                break;
+            case "diary3":
+                constraintLayout.setBackgroundResource(R.drawable.diary3);
+                break;
+            case "diary4":
+                constraintLayout.setBackgroundResource(R.drawable.diary4);
+                break;
+            case "diary5":
+                constraintLayout.setBackgroundResource(R.drawable.diary5);
+                break;
+            case "diary6":
+                constraintLayout.setBackgroundResource(R.drawable.diary6);
+                break;
+            case "diary7":
+                constraintLayout.setBackgroundResource(R.drawable.diary7);
+                break;
+            case "diary8":
+                constraintLayout.setBackgroundResource(R.drawable.diary8);
+                break;
+            case "diary9":
+                constraintLayout.setBackgroundResource(R.drawable.diary9);
+                break;
+            default:
+                constraintLayout.setBackgroundResource(R.drawable.diary1);
         }
+
+            progressDialog = new ProgressDialog(SettingActivity.this, R.style.ThemeDialog2);
+
         progressDialog.setMessage(getString(R.string.clearing_cache));
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
@@ -90,33 +107,24 @@ public class SettingActivity extends AppCompatActivity {
         tv_cachesize = findViewById(R.id.tv_cachesize);
 
         about= findViewById(R.id.nav_about);
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent player = new Intent(SettingActivity.this, AboutActivity.class);
-                startActivity(player);
-            }
+        about.setOnClickListener(v -> {
+            Intent player = new Intent(SettingActivity.this, AboutActivity.class);
+            startActivity(player);
         });
 
         share  = findViewById(R.id.nav_share);
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String appName = getPackageName();
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appName)));
-            }
+        share.setOnClickListener(v -> {
+            final String appName = getPackageName();
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appName)));
         });
 
         lockScreen= findViewById(R.id.lockScreen);
-        lockScreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Setting.in_code){
-                    showDeletNoteDialog();
-                }else {
-                    Intent main = new Intent(SettingActivity.this, LockScreenActivity.class);
-                    startActivity(main);
-                }
+        lockScreen.setOnClickListener(v -> {
+            if (Setting.in_code){
+                showDeletNoteDialog();
+            }else {
+                Intent main = new Intent(SettingActivity.this, LockScreenActivity.class);
+                startActivity(main);
             }
         });
 
@@ -165,12 +173,9 @@ public class SettingActivity extends AppCompatActivity {
         } else {
             switch_dark.setChecked(false);
         }
-        switch_dark.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
-                sharedPref.setNightMode(isChecked);
-                Apps_recreate();
-            }
+        switch_dark.setOnCheckedChangeListener((view, isChecked) -> {
+            sharedPref.setNightMode(isChecked);
+            Apps_recreate();
         });
     }
 
@@ -180,16 +185,13 @@ public class SettingActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case android.R.id.home:
-                overridePendingTransition(0, 0);
-                overridePendingTransition(0, 0);
-                startActivity(new Intent(SettingActivity.this, MainActivity.class));
-                finish();
-                break;
-
-            default:
-                return super.onOptionsItemSelected(menuItem);
+        if (menuItem.getItemId() == android.R.id.home) {
+            overridePendingTransition(0, 0);
+            overridePendingTransition(0, 0);
+            startActivity(new Intent(SettingActivity.this, MainActivity.class));
+            finish();
+        } else {
+            return super.onOptionsItemSelected(menuItem);
         }
         return true;
     }
@@ -222,12 +224,7 @@ public class SettingActivity extends AppCompatActivity {
                 }
             });
 
-            view.findViewById(R.id.textCancel).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dialogDeletNote.dismiss();
-                }
-            });
+            view.findViewById(R.id.textCancel).setOnClickListener(view1 -> dialogDeletNote.dismiss());
         }
 
         dialogDeletNote.show();

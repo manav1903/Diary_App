@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/themeback"
+    tools:context=".Activity.Theme.ThemeSelector">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_setting"
+        android:layout_width="match_parent"
+        app:titleTextColor="?BackgroundTint"
+        app:navigationIcon="?attr/icon_a"
+        app:title="@string/select_theme"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/diary1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/todo"
+                    android:padding="@dimen/_15sdp"
+
+                    android:src="@drawable/diary1" />
+
+
+            <ImageView
+                android:id="@+id/diary2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/todo"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/diary2" />
+
+            <ImageView
+                android:id="@+id/diary3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/todo"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/diary3" />
+
+            <ImageView
+                android:id="@+id/diary4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/todo"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/diary4" />
+
+            <ImageView
+                android:id="@+id/diary5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/todo"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/diary5" />
+
+            <ImageView
+                android:id="@+id/diary6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/todo"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/diary6" />
+
+            <ImageView
+                android:id="@+id/diary7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/todo"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/diary7" />
+
+            <ImageView
+                android:id="@+id/diary8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/todo"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/diary8" />
+
+            <ImageView
+                android:id="@+id/diary9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/todo"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/diary9" />
+        </LinearLayout>
+
+
+    </HorizontalScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

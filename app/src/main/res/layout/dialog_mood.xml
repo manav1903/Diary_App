@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="40dp"
+    android:background="#FAFAFA"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/how_was_your_day"
+        android:textColor="#212B60"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/happy_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        android:background="@color/background_Light"
+        android:src="@drawable/ic_baseline_emoji_emotions_24"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:contentDescription="@string/todo" />
+    <ImageButton
+        android:id="@+id/sick_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/background_Light"
+        android:src="@drawable/ic_baseline_sick_24"
+        app:layout_constraintLeft_toRightOf="@id/happy_mood"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:contentDescription="@string/todo" />
+    <ImageButton
+        android:id="@+id/sad_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/background_Light"
+        android:src="@drawable/ic_round_sentiment_dissatisfied_24"
+        app:layout_constraintLeft_toRightOf="@id/sick_mood"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:contentDescription="@string/todo" />
+    <ImageButton
+        android:id="@+id/angry_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@color/background_Light"
+        android:src="@drawable/ic_angry__2_"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toRightOf="@id/sad_mood"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:contentDescription="@string/todo" />
+    <ImageButton
+        android:id="@+id/love_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/background_Light"
+        android:src="@drawable/ic_smiley_face_love_png"
+        app:layout_constraintLeft_toRightOf="@id/angry_mood"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:contentDescription="@string/todo" />
+
+    <ImageButton
+        android:id="@+id/tired_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/background_Light"
+        android:src="@drawable/ic__058302_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/happy_mood"
+        android:contentDescription="@string/todo" />
+    <ImageButton
+        android:id="@+id/sleepy_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/background_Light"
+        android:src="@drawable/ic__31790d9e03ed9a2e1481fca20fb5bad"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tired_mood"
+        app:layout_constraintTop_toBottomOf="@+id/happy_mood"
+        android:contentDescription="@string/todo" />
+    <ImageButton
+        android:id="@+id/wow_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/background_Light"
+        android:src="@drawable/ic_wow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/sleepy_mood"
+        app:layout_constraintTop_toBottomOf="@+id/happy_mood"
+        android:contentDescription="@string/todo" />
+    <ImageButton
+        android:id="@+id/cry_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/background_Light"
+        android:src="@drawable/ic__1vp34fycal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/wow_mood"
+        app:layout_constraintTop_toBottomOf="@+id/happy_mood"
+        android:contentDescription="@string/todo" />
+    <ImageButton
+        android:id="@+id/neutral_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/background_Light"
+        android:src="@drawable/ic_baseline_sentiment_neutral_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/cry_mood"
+        app:layout_constraintTop_toBottomOf="@+id/happy_mood"
+        android:contentDescription="@string/todo" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

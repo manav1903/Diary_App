@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">My Diary</string>
+    <string name="app_name">Day Diary</string>
 
     <!--<Admob ads>-->
-  <!--  <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="interstitia_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>-->
+    <string name="interstitia_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
 
-    <string name="admob_app_id"> ca-app-pub-4310459535775382~4120417068</string>
-    <string name="banner_ad_unit_id">ca-app-pub-4310459535775382/6675617589</string>
-    <string name="interstitia_ad_unit_id">ca-app-pub-4310459535775382/7661396192</string>
+    <!--    <string name="admob_app_id"> ca-app-pub-4310459535775382~4120417068</string>-->
+    <!--    <string name="banner_ad_unit_id">ca-app-pub-4310459535775382/6675617589</string>-->
+    <!--    <string name="interstitia_ad_unit_id">ca-app-pub-4310459535775382/7661396192</string>-->
 
 
     <!--< Fb Ads>-->
@@ -77,5 +77,9 @@
     <string name="clear_cache">Clear Cache</string>
     <string name="cache_cleared">Cache Cleared</string>
     <string name="clearing_cache">Clearing Cache..</string>
+    <string name="how_s_your_day">How is your day?</string>
+    <string name="how_was_your_day">How was your day?</string>
+    <string name="text_tools">Text Tools</string>
+    <string name="select_theme">Select Theme</string>
 
 </resources>

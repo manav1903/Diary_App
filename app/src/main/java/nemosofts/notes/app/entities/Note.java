@@ -28,11 +28,26 @@ public class Note implements Serializable {
     @ColumnInfo(name = "image_path")
     private String imagePath;
 
+
+    @ColumnInfo(name = "image_path2")
+    private String imagePath2;
+
+
+    @ColumnInfo(name = "image_path3")
+    private String imagePath3;
+
+
+    @ColumnInfo(name = "image_path4")
+    private String imagePath4;
+
     @ColumnInfo(name = "color")
     private String color;
 
     @ColumnInfo(name = "web_link")
     private String webLink;
+
+    @ColumnInfo(name = "mood")
+    private String mood;
 
     public int getId() {
         return id;
@@ -82,6 +97,30 @@ public class Note implements Serializable {
         this.imagePath = imagePath;
     }
 
+    public String getImagePath2() {
+        return imagePath2;
+    }
+
+    public void setImagePath2(String imagePath2) {
+        this.imagePath2 = imagePath2;
+    }
+
+    public String getImagePath3() {
+        return imagePath3;
+    }
+
+    public void setImagePath3(String imagePath3) {
+        this.imagePath3 = imagePath3;
+    }
+
+    public String getImagePath4() {
+        return imagePath4;
+    }
+
+    public void setImagePath4(String imagePath4) {
+        this.imagePath4 = imagePath4;
+    }
+
     public String getColor() {
         return color;
     }
@@ -96,6 +135,14 @@ public class Note implements Serializable {
 
     public void setWebLink(String webLink) {
         this.webLink = webLink;
+    }
+
+    public String getMood() {
+        return mood;
+    }
+
+    public void setMood(String mood) {
+        this.mood = mood;
     }
 
 

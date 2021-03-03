@@ -24,6 +24,15 @@ public class SharedPref {
         editor.putBoolean("night_mode", state);
         editor.apply();
     }
+    public String getTheme() {
+        return sharedPreferences.getString("colorTheme", "diary1");
+    }
+
+    public void setTheme(String theme) {
+        editor.putString("colorTheme",theme);
+        editor.apply();
+    }
+
 
     public void saveToPref(String str, Boolean b) {
         editor.putBoolean("in_code", b);
@@ -32,7 +41,7 @@ public class SharedPref {
     }
 
     public String getCode() {
-        return sharedPreferences.getString("code","");
+        return sharedPreferences.getString("code", "");
     }
 
     public Boolean getIn_Code() {
